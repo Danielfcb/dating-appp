@@ -1,0 +1,6 @@
+Following third party libraries were used in this project:
+
+** Angular-jwt - authentication and token parsing
+** ngx-bootstrap - pure css javaScript bootstrap for Angular
+** bootswatch - bootstrap themes
+** alertify - improved alerting plugin

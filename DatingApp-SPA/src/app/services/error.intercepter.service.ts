@@ -15,7 +15,8 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError(error => {
         console.log('error is caught in the interceptor');
         if (error.status === 401) {
-          return throwError(error.StatusText);
+          console.log('Unauthorized access! ' + error.statusText);
+          return throwError(error.statusText);
         }
 
         if (error instanceof HttpErrorResponse) {

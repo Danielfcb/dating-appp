@@ -1,3 +1,4 @@
+import { AlertifyService } from './../services/alertify.service';
 import { AuthService } from './../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
@@ -13,24 +14,23 @@ export class RegisterComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
-    console.log(this.model);
   }
 
   register() {
     this.authService.register(this.model).subscribe(response => {
-      console.log('registered successfully');
+      this.alertify.success('registered successfully');
     }, error => {
-        console.error('registeration failed!', error);
+      this.alertify.error(error);
       }
     );
   }
 
   cancel() {
     this.cancelRegister.emit(false);
-    console.log('canceled!');
+    this.alertify.message('canceled!');
   }
 
 }
