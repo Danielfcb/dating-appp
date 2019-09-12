@@ -30,6 +30,8 @@ namespace DatingApp.API
                     logger.LogError(ex, "An Error occured during migration.");
                 }
             }
+
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
