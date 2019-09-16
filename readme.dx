@@ -4,3 +4,4 @@ Following third party libraries were used in this project:
 ** ngx-bootstrap - pure css javaScript bootstrap for Angular
 ** bootswatch - bootstrap themes
 ** alertify - improved alerting plugin
+** AutoMapper
