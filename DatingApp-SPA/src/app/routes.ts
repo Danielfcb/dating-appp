@@ -1,9 +1,11 @@
 import { AuthGuard } from './_guards/auth.guard';
+import { Routes, CanActivate } from '@angular/router';
+
+import { MemberDetailsComponent } from './members/member-details/member-details.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { HomeComponent } from './home/home.component';
-import { Routes, CanActivate } from '@angular/router';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,6 +15,7 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
+      {path: 'members/:id', component: MemberDetailsComponent},
       {path: 'messages', component: MessagesComponent},
       {path: 'lists', component: ListsComponent},
     ]
