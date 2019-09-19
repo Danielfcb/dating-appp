@@ -8,6 +8,8 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { HomeComponent } from './home/home.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +19,7 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'members', component: MemberListComponent, resolve: {users: MemberListResolver}},
+      {path: 'members/edit', component: MemberEditComponent, resolve: {user: MemberEditResolver}},
       {path: 'members/:id', component: MemberDetailsComponent, resolve: {user: MemberDetailResolver}},
       {path: 'messages', component: MessagesComponent},
       {path: 'lists', component: ListsComponent},

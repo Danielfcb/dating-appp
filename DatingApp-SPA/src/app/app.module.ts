@@ -1,3 +1,5 @@
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { AlertifyService } from './services/alertify.service';
 import { UserService } from './services/user.service';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
@@ -47,7 +49,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailsComponent
+      MemberDetailsComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -68,6 +71,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
    providers: [
       ErrorInterceptorProvider,
       MemberDetailResolver,
+      MemberEditResolver,
       AuthService,
       AuthGuard,
       MemberListResolver,
