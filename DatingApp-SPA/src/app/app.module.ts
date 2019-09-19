@@ -1,3 +1,4 @@
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { AlertifyService } from './services/alertify.service';
@@ -74,6 +75,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberEditResolver,
       AuthService,
       AuthGuard,
+      PreventUnsavedChanges,
       MemberListResolver,
       UserService,
       AlertifyService,
