@@ -36,7 +36,7 @@ namespace DatingApp.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetUser/{id}")]
+        [Route("{id}")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repository.GetUser(id);

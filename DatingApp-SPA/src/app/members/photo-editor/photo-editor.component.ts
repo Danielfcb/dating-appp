@@ -1,5 +1,5 @@
+import { UserService } from 'src/app/services/user.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
-import { UserService } from './../../services/user.service';
 import { AuthService } from './../../services/auth.service';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -67,6 +67,17 @@ export class PhotoEditorComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
     }, error => {
       this.alertify.error(error);
+    });
+  }
+
+  deletePhoto(id: number) {
+    this.alertify.confirm('Are you sure you want to delete this photo?', () => {
+      this.userService.deletePhoto(this.authService.decodedToken.nameid, id).subscribe(() => {
+        this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+        this.alertify.success('Photo has been deleted!');
+      }, error => {
+        this.alertify.error('Failed to delete the photo!');
+      });
     });
   }
 }
