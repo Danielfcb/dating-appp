@@ -18,6 +18,9 @@ import { appRoutes } from './routes';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -62,7 +65,9 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       FormsModule,
       ReactiveFormsModule,
       TabsModule.forRoot(),
+      BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
       FileUploadModule,
@@ -84,6 +89,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberListResolver,
       UserService,
       AlertifyService,
+      BsLocaleService,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
    ],
    bootstrap: [
